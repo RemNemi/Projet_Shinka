@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_hub"
+        android:icon="@drawable/ic_hub"
+        android:title="@string/hub"/>
+    <item
+        android:id="@+id/navigation_entrainement"
+        android:icon="@drawable/ic_entrainement"
+        android:title="@string/entrainement"/>
+    <item
+        android:id="@+id/navigation_my_ai"
+        android:icon="@drawable/ic_ai"
+        android:title="@string/my_ai"/>
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/ic_profile"
+        android:title="@string/profile"/>
+</menu>

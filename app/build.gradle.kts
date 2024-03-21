@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.testpourshinka"
+    namespace = "com.example.Projet_Shinka"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.testpourshinka"
+        applicationId = "com.example.Projet_Shinka"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

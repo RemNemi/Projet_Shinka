@@ -1,4 +1,4 @@
-package com.example.shinka
+package com.example.Projet_Shinka
 
 import org.junit.Test
 

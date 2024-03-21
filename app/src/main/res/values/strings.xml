@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">test pour shinka</string>
+    <string name="app_name">Shinka</string>
     <string name="entrainement">entrainement</string>
     <string name="hub">hub</string>
     <string name="my_ai">my_ai</string>
@@ -8,4 +8,5 @@
     <string name="entrainement_title">Entrainement</string>
     <string name="nom_entrainement1">Entrainement N1</string>
     <string name="todo">TODO</string>
+    <string name="note">VALUE A CHANGER\n</string>
 </resources>
