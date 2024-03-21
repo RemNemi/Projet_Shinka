@@ -1,6 +1,11 @@
 <resources>
-    <string name="app_name">Shinka</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="app_name">test pour shinka</string>
+    <string name="entrainement">entrainement</string>
+    <string name="hub">hub</string>
+    <string name="my_ai">my_ai</string>
+    <string name="profile">profile</string>
+    <string name="Hub11">calendar</string>
+    <string name="entrainement_title">Entrainement</string>
+    <string name="nom_entrainement1">Entrainement N1</string>
+    <string name="todo">TODO</string>
 </resources>

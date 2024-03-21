@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Shinka"
+rootProject.name = "test pour shinka"
 include(":app")
  
