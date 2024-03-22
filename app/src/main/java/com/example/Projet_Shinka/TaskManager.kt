@@ -23,7 +23,39 @@ class TaskManager {
         tasks.add(Task(title = title, type = type, timeCategory = timeCategory))
     }
 
-    // Autres fonctions pour gérer les tâches (suppression, modification, etc.)
+    fun getTasks(): List<Task> = tasks
+
+    fun getTasksByType(type: TaskType): List<Task> = tasks.filter { it.type == type }
+
+    fun getTasksByTimeCategory(timeCategory: TimeCategory): List<Task> = tasks.filter { it.timeCategory == timeCategory }
+
+    fun removeTask(taskId: UUID) {
+        tasks.removeAll { it.id == taskId }
+    }
+
+    fun updateTask(taskId: UUID, newTitle: String, newType: TaskType, newTimeCategory: TimeCategory) {
+        tasks.find { it.id == taskId }?.apply {
+            title = newTitle
+            type = newType
+            timeCategory = newTimeCategory
+        }
+    }
+
+    fun saveTasks() {
+        val sharedPreferences = context.getSharedPreferences("TaskManager", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putString("tasks", Gson().toJson(tasks))
+        editor.apply()
+    }
+
+    fun loadTasks() {
+        val sharedPreferences = context.getSharedPreferences("TaskManager", Context.MODE_PRIVATE)
+        val tasksJson = sharedPreferences.getString("tasks", null)
+        tasksJson?.let {
+            tasks = Gson().fromJson(it, Array<Task>::class.java).toMutableList()
+        }
+    }
+}
 }
 
 

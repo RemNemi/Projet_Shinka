@@ -44,6 +44,8 @@ class HubFragment : Fragment() {
 
     private fun navigateToTaskReminder() {
         // Implémentez la navigation vers la page de rappel des tâches
+        val taskReminderFragment = TaskReminderFragment()
+        fragmentManager?.beginTransaction()?.replace(R.id.fragment_container, taskReminderFragment)?.addToBackStack(null)?.commit()
         // Possible d'utiliser une nouvelle Activity ou un Fragment pour cela
     }
 
