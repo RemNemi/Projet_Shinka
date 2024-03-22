@@ -1,9 +1,68 @@
-// Début de TaskManager.kt
 package com.example.Projet_Shinka
 
-import android.content.Context
-// Importez d'autres bibliothèques nécessaires...
 
+import java.util.*
+
+data class Task(val id: UUID = UUID.randomUUID(),
+                var title: String,
+                var type: TaskType,
+                var timeCategory: TimeCategory)
+
+enum class TaskType {
+    SPORT, KNOWLEDGE, WELLBEING, HELP
+}
+
+enum class TimeCategory {
+    DAILY, WEEKLY, EXCEPTIONAL
+}
+
+class TaskManager {
+    private val tasks = mutableListOf<Task>()
+
+    fun addTask(title: String, type: TaskType, timeCategory: TimeCategory) {
+        tasks.add(Task(title = title, type = type, timeCategory = timeCategory))
+    }
+
+    // Autres fonctions pour gérer les tâches (suppression, modification, etc.)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+// Classe TaskManager
 class TaskManager(private val context: Context) {
     // Liste pour stocker les tâches
     private val tasks = mutableListOf<Task>()
@@ -43,4 +102,5 @@ class TaskManager(private val context: Context) {
         // Ajoutez d'autres propriétés et fonctions selon vos besoins...
     }
 }
-// Fin de TaskManager.kt
+*/
+
