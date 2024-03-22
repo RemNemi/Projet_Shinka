@@ -80,29 +80,6 @@ class HubFragment : Fragment() {
 }
 
 
-class EntrainementFragment : Fragment() {
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_entrainement, container, false)
-
-        val recyclerView: RecyclerView = view.findViewById(R.id.recycler_view_entrainement)
-        // Assurez-vous de créer et de configurer un Adapter pour votre RecyclerView
-        // Par exemple, EntrainementAdapter qui prend une liste d'activités
-
-        // Configurer le layout manager
-        recyclerView.layoutManager = LinearLayoutManager(context)
-        // Créer et définir l'adapter avec des données
-        recyclerView.adapter = EntrainementAdapter(listOf(/* Ajoutez ici vos données */))
-
-        return view
-    }
-}
-
-
 
 // Vous devrez créer une classe EntrainementAdapter pour gérer l'affichage des éléments de la liste
 
