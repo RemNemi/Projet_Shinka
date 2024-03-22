@@ -69,31 +69,6 @@ private fun createNotificationChannel() {
         notificationManager.createNotificationChannel(channel)
     }
 }
-
-
-class HubFragment : Fragment() {
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_hub, container, false)
-
-        // Configurez les actions des boutons ici, par exemple :
-        val buttonCategory1: Button = view.findViewById(R.id.button_category1)
-        buttonCategory1.setOnClickListener {
-            // Action lorsque le bouton 1 est cliqué
-        }
-
-        // Configurations supplémentaires pour d'autres boutons...
-
-        return view
-    }
-}
-
-
-
 // Vous devrez créer une classe EntrainementAdapter pour gérer l'affichage des éléments de la liste
 
 

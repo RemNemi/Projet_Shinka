@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
-import kotlin.coroutines.jvm.internal.CompletedContinuation.context
 
 // Importations nécessaires...
 
@@ -45,7 +44,7 @@ class HubFragment : Fragment() {
     private fun navigateToTaskReminder() {
         // Implémentez la navigation vers la page de rappel des tâches
         val taskReminderFragment = TaskReminderFragment()
-        fragmentManager?.beginTransaction()?.replace(R.id.fragment_container, taskReminderFragment)?.addToBackStack(null)?.commit()
+        fragmentManager?.beginTransaction()?.replace(R.id.fragment_container, TaskReminderFragment)?.addToBackStack(null)?.commit()
         // Possible d'utiliser une nouvelle Activity ou un Fragment pour cela
     }
 
