@@ -12,7 +12,7 @@ import java.io.IOException
 class OpenAIClient {
 
     private val client = OkHttpClient()
-    private val apiKey = "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" // CléAPI
+    private val apiKey = "Cle a mettre"// CléAPI
 
     fun sendPrompt(prompt: String, completion: (String) -> Unit) {
         val body = RequestBody.create(
