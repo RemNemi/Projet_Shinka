@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class EntrainementAdapter(private val entrainements: List<Entrainement>) : RecyclerView.Adapter<EntrainementAdapter.ViewHolder>() {
+class EntrainementAdapter(private val entrainements: List<Entrainement<Any?>>) : RecyclerView.Adapter<EntrainementAdapter.ViewHolder>() {
 
     // Vous devrez créer une classe de données Entrainement pour représenter chaque activité
 

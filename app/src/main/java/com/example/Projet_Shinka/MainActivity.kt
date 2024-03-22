@@ -112,5 +112,5 @@ class MyAIFragment : Fragment() {
 }
 
 class ProfileFragment : Fragment() {
-    //
+    // ...
 }

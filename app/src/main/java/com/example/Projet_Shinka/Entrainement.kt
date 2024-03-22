@@ -8,7 +8,10 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 
-class Entrainement : Fragment() {
+class Entrainement<name> : Fragment() {
+
+
+    val nom: String = "entrainement"
 
     @SuppressLint("MissingInflatedId")
     override fun onCreateView(
