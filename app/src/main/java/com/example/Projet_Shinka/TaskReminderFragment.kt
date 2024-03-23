@@ -1,4 +1,7 @@
 package com.example.Projet_Shinka
 
-class TaskReminderFragment {
+import androidx.fragment.app.Fragment
+
+class TaskReminderFragment : Fragment() {
+    // Implémentations ici...
 }

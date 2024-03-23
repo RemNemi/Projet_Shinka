@@ -1,39 +1,37 @@
 package com.example.Projet_Shinka
 
-
-import android.telecom.Call
 import okhttp3.*
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.IOException
 
 class OpenAIClient {
 
     private val client = OkHttpClient()
-    private val apiKey = "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" // Remplacez par le mécanisme de stockage sécurisé approprié
+    private val apiKey = "sk-..." // Utilisez un mécanisme sécurisé pour stocker et récupérer la clé API
 
     fun sendPrompt(prompt: String, completion: (Response<String>) -> Unit) {
-        val body = RequestBody.create(
-            MediaType.parse("application/json; charset=utf-8"),
-            "{\"prompt\":\"$prompt\", \"max_tokens\":150}"
-        )
+        val mediaType = "application/json; charset=utf-8".toMediaType() // Correction ici
+        val body = "{\"prompt\":\"$prompt\", \"max_tokens\":150}".toRequestBody(mediaType) // Correction ici
         val request = Request.Builder()
             .url("https://api.openai.com/v1/engines/davinci-codex/completions")
             .post(body)
             .addHeader("Authorization", "Bearer $apiKey")
             .build()
 
-        client.newCall(request).enqueue(object : okhttp3.Callback {
-            override fun onFailure(call: Call, e: IOException) {
-                completion(Response.Error("Erreur de réseau ou problème de serveur."))
+        client.newCall(request).enqueue(object : Callback {
+            override fun onFailure(call: okhttp3.Call, e: IOException) {
+                completion(OpenAIResponse.Error("Erreur de réseau ou problème de serveur."))
             }
 
-            override fun onResponse(call: Call, response: okhttp3.Response) {
+            override fun onResponse(call: okhttp3.Call, response: okhttp3.Response) {
                 response.use {
                     if (!response.isSuccessful) {
-                        completion(Response.Error("Réponse inattendue: ${response.message()}"))
+                        completion(OpenAIResponse.Error("Réponse inattendue: ${response.message}")) // Correction ici
                     } else {
-                        response.body()?.string()?.let {
-                            completion(Response.Success(it))
-                        } ?: completion(Response.Error("Réponse vide de la part d'OpenAI."))
+                        response.body?.string()?.let {
+                            completion(OpenAIResponse.Success(it))
+                        } ?: completion(OpenAIResponse.Error("Réponse vide de la part d'OpenAI."))
                     }
                 }
             }
@@ -41,7 +39,7 @@ class OpenAIClient {
     }
 }
 
-sealed class Response<out T> {
+sealed class OpenAIResponse<out T> {
     data class Success<out T>(val data: T) : Response<T>()
     data class Error(val message: String) : Response<Nothing>()
 }
