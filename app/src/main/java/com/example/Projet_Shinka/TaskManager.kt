@@ -1,6 +1,8 @@
 package com.example.Projet_Shinka
 
 
+import android.content.Context
+import com.google.gson.Gson
 import java.util.*
 
 data class Task(val id: UUID = UUID.randomUUID(),
@@ -16,7 +18,7 @@ enum class TimeCategory {
     DAILY, WEEKLY, EXCEPTIONAL
 }
 
-class TaskManager {
+class TaskManager(private val context: Context) {
     private val tasks = mutableListOf<Task>()
 
     fun addTask(title: String, type: TaskType, timeCategory: TimeCategory) {
@@ -44,7 +46,9 @@ class TaskManager {
     fun saveTasks() {
         val sharedPreferences = context.getSharedPreferences("TaskManager", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
-        editor.putString("tasks", Gson().toJson(tasks))
+        val gson = Gson()
+        val tasksJson = gson.toJson(tasks)
+        editor.putString("tasks", tasksJson)
         editor.apply()
     }
 
@@ -52,10 +56,13 @@ class TaskManager {
         val sharedPreferences = context.getSharedPreferences("TaskManager", Context.MODE_PRIVATE)
         val tasksJson = sharedPreferences.getString("tasks", null)
         tasksJson?.let {
-            tasks = Gson().fromJson(it, Array<Task>::class.java).toMutableList()
+            val gson = Gson()
+            val type = object : com.google.gson.reflect.TypeToken<List<Task>>() {}.type
+            val loadedTasks: List<Task> = gson.fromJson(it, type)
+            tasks.clear()
+            tasks.addAll(loadedTasks)
         }
     }
-}
 }
 
 

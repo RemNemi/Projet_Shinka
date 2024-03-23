@@ -29,7 +29,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/note" />
+            android:text="@string/note"
+            />
     </LinearLayout>
 
     <!-- Ajoutez d'autres éléments pour la respiration, la méditation, etc. -->
