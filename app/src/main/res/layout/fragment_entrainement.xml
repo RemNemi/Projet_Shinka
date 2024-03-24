@@ -31,7 +31,18 @@
             android:layout_height="wrap_content"
             android:text="@string/note"
             />
+
     </LinearLayout>
+
+    <!-- Ajout du RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_entrainement"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp"
+        android:background="?attr/selectableItemBackground" />
 
     <!-- Ajoutez d'autres éléments pour la respiration, la méditation, etc. -->
 </GridLayout>
+

@@ -63,6 +63,7 @@ dependencies {
     implementation(libs.flexboxLayout)
     implementation(libs.androidx.tracing.perfetto.handshake)
     implementation(libs.firebase.crashlytics.buildtools)
+    implementation(libs.androidx.recyclerview)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
