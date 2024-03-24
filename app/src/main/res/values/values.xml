@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MonApplication</string>
+    <color name="colorPrimary">#6200EE</color>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+</resources>
