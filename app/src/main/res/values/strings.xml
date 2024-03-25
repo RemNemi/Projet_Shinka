@@ -14,4 +14,6 @@
     <string name="meditation">Meditation</string>
     <string name="send_button_description">ENVOYER</string>
     <string name="user_input_description">Vous avez besoin d\'information ?</string>
+    <string name="add_task">Ajouter un objectif</string>
+    <string name="description_entrainement">Un ptit entrainement ?</string>
 </resources>
