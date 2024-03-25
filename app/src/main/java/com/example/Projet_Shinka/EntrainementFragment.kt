@@ -16,18 +16,19 @@ class EntrainementFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        // Ici, on se contente d'infalter le layout du fragment
         return inflater.inflate(R.layout.fragment_entrainement, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // Ici, vous pouvez accéder à votre vue car elle est déjà créée
         val recyclerView: RecyclerView = view.findViewById(R.id.recycler_view_entrainement)
-        // Assurez-vous de créer et de configurer un Adapter pour votre RecyclerView
-        // Par exemple, EntrainementAdapter qui prend une liste d'activités
-
-        // Configurer le layout manager
         recyclerView.layoutManager = LinearLayoutManager(context)
+
         // Créer et définir l'adapter avec des données
+        // Remplacez /* Ajoutez ici vos données */ par vos données réelles
         recyclerView.adapter = EntrainementAdapter(listOf(/* Ajoutez ici vos données */))
-
-        return view
-
+    }
 }
