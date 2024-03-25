@@ -11,4 +11,7 @@
     <string name="prompt_empty_error">ERROR (1car min)</string>
     <string name="user_input_hint">Poser vos question</string>
     <string name="send">Envoyer</string>
+    <string name="meditation">Meditation</string>
+    <string name="send_button_description">ENVOYER</string>
+    <string name="user_input_description">Vous avez besoin d\'information ?</string>
 </resources>

@@ -1,27 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:layout_height="match_parent">
 
-    <com.google.android.flexbox.FlexboxLayout
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:alignItems="center"
-        app:justifyContent="center">
+        android:orientation="vertical"
+        android:padding="16dp">
 
-        <!-- Exemple de bouton sous forme de bulle -->
-        <Button
-            android:id="@+id/button_category1"
-            android:layout_width="wrap_content"
+        <com.google.android.flexbox.FlexboxLayout
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/shape_bubble"
-            android:text="@string/Hub11" />
+            app:alignItems="center"
+            app:justifyContent="center"
+            app:flexWrap="wrap">
 
-        <!-- Ajoutez d'autres boutons ici -->
+            <!-- Exemple de bouton sous forme de bulle -->
+            <Button
+                android:id="@+id/button_category1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_bubble"
+                android:text="@string/Hub11" />
 
-    </com.google.android.flexbox.FlexboxLayout>
-</LinearLayout>
+            <!-- Ajoutez d'autres boutons ici pour d'autres catégories -->
+
+        </com.google.android.flexbox.FlexboxLayout>
+    </LinearLayout>
+</ScrollView>

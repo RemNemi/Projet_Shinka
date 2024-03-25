@@ -5,6 +5,7 @@ import android.content.Context
 import com.google.gson.Gson
 import java.util.*
 
+
 data class Task(val id: UUID = UUID.randomUUID(),
                 var title: String,
                 var type: TaskType,
@@ -58,7 +59,7 @@ class TaskManager(private val context: Context) {
         tasksJson?.let {
             val gson = Gson()
             val type = object : com.google.gson.reflect.TypeToken<List<Task>>() {}.type
-            val loadedTasks: List<Task> = gson.fromJson(it, type)
+            val loadedTasks: List<Task> = gson.fromJson(/* json = */ it, /* typeOfT = */ type)
             tasks.clear()
             tasks.addAll(loadedTasks)
         }

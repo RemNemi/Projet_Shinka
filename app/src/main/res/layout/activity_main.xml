@@ -1,23 +1,27 @@
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="MainActivity">
+    tools:context=".MainActivity">
 
-    <!-- Ceci est le conteneur pour vos fragments -->
+    <!-- Conteneur pour vos fragments avec animation de transition -->
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/nav_view"/>
+        android:layout_above="@id/nav_view"
+        android:animateLayoutChanges="true"/> <!-- Ajoutez cette ligne pour une animation simple -->
 
-    <!-- Ceci est votre BottomNavigationView -->
+    <!-- BottomNavigationView personnalisé -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        app:menu="@menu/bottom_navigation_menu" />
+        android:background="?android:attr/windowBackground"
+        app:menu="@menu/bottom_navigation_menu"
+        app:itemIconTint="@color/nav_item_color"
+        app:itemTextColor="@color/nav_item_color"
+    app:elevation="16dp"/> <!-- Ombre sous la barre de navigation pour plus de profondeur -->
 </RelativeLayout>
