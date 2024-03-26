@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="layout_note" type="id">Bloc Note</item>
-    <item name="recycler_view_entrainement" type="id">a changer</item>
-    <item name="button_task_reminder" type="id">Bouton_task a faire</item>
-    <item name="button_calendar" type="id">a faire Bouton calendar</item>
+    <item name="layout_note" type="id"/>
+    <item name="recycler_view_entrainement" type="id"/>
+    <item name="button_task_reminder" type="id"/>
+    <item name="button_calendar" type="id"/>
 </resources>
