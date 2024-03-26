@@ -17,4 +17,10 @@
     <string name="add_task">Ajouter un objectif</string>
     <string name="description_entrainement">Un ptit entrainement ?</string>
     <string name="app_name">Shinka</string>
+    <string name="task_reminder">Rappel de Tâche</string>
+    <string name="calendar">Calendrier</string>
+    <string name="error_message">Erreur</string>
+    <string name="action_confirm">Confirmer</string>
+    <string name="action_cancel">Annuler</string>
+    <string name="welcome_message">Bienvenue dans Shinka</string>$
 </resources>

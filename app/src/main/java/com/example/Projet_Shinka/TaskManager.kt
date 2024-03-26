@@ -6,11 +6,81 @@ import com.google.gson.Gson
 import java.util.*
 
 
-data class Task(val id: UUID = UUID.randomUUID(),
-                var title: String,
-                var type: TaskType,
-                var timeCategory: TimeCategory)
+@Entity
+data class Task(
+    @PrimaryKey(autoGenerate = true) val id: Int = 0,
+    var title: String,
+    var type: TaskType,
+    var timeCategory: TimeCategory
+)
 
+@Dao
+interface TaskDao {
+    @Insert
+    suspend fun addTask(task: Task)
+
+    @Query("SELECT * FROM Task")
+    suspend fun getTasks(): List<Task>
+
+    // Autres méthodes CRUD
+}
+
+
+@Database(entities = [Task::class], version = 1)
+abstract class AppDatabase : RoomDatabase() {
+    abstract fun taskDao(): TaskDao
+
+    companion object {
+        // Singleton pour empêcher plusieurs instances de la base de données
+        @Volatile
+        private var INSTANCE: AppDatabase? = null
+
+        fun getDatabase(context: Context): AppDatabase {
+            return INSTANCE ?: synchronized(this) {
+                val instance = Room.databaseBuilder(
+                    context.applicationContext,
+                    AppDatabase::class.java,
+                    "task_database"
+                ).build()
+                INSTANCE = instance
+                instance
+            }
+        }
+    }
+}
+
+class TaskManager(context: Context) {
+    private val taskDao: TaskDao = AppDatabase.getDatabase(context).taskDao()
+
+    suspend fun addTask(task: Task) {
+        taskDao.addTask(task)
+    }
+
+    suspend fun getTasks(): List<Task> {
+        return taskDao.getTasks()
+    }
+
+    // Implémentez d'autres méthodes pour mettre à jour et supprimer les tâches
+}
+
+
+class Converters {
+    @TypeConverter
+    fun fromTaskType(value: TaskType): String = value.name
+
+    @TypeConverter
+    fun toTaskType(value: String): TaskType = enumValueOf(value)
+
+    @TypeConverter
+    fun fromTimeCategory(value: TimeCategory): String = value.name
+
+    @TypeConverter
+    fun toTimeCategory(value: String): TimeCategory = enumValueOf(value)
+}
+
+
+
+/*
 enum class TaskType {
     SPORT, KNOWLEDGE, WELLBEING, HELP
 }
@@ -64,83 +134,5 @@ class TaskManager(private val context: Context) {
             tasks.addAll(loadedTasks)
         }
     }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-// Classe TaskManager
-class TaskManager(private val context: Context) {
-    // Liste pour stocker les tâches
-    private val tasks = mutableListOf<Task>()
-
-    // Fonction pour ajouter une tâche
-    fun addTask(task: Task) {
-        tasks.add(task)
-        // Ajoutez la logique pour planifier des notifications si nécessaire
-    }
-
-    // Fonction pour supprimer une tâche
-    fun removeTask(task: Task) {
-        tasks.remove(task)
-        // Annulez la notification si elle a été planifiée
-    }
-
-    // Fonction pour obtenir toutes les tâches
-    fun getAllTasks(): List<Task> {
-        return tasks
-    }
-
-    // Fonction pour obtenir les tâches d'un jour spécifique
-    fun getTasksForDate(date: LocalDate): List<Task> {
-        // Filtrez et retournez les tâches qui ont des rappels pour la date spécifiée
-        return tasks.filter { task ->
-            task.reminderDate == date
-        }
-    }
-
-    // Fonction pour planifier des rappels/notification pour les tâches
-    private fun scheduleReminder(task: Task) {
-        // Implémentez la logique de programmation de rappel/notification ici
-    }
-
-    // Classe interne pour définir une tâche
-    class Task(val name: String, val description: String, val reminderDate: LocalDate) {
-        // Ajoutez d'autres propriétés et fonctions selon vos besoins...
-    }
-}
-*/
+}*/
 

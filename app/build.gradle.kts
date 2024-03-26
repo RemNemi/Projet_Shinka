@@ -1,8 +1,8 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    id("com.google.devtools.ksp").version("1.9.23-1.0.19")
 }
-
 android {
     namespace = "com.example.Projet_Shinka"
     compileSdk = 34
@@ -48,6 +48,15 @@ android {
         }
     }
 }
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath("com.google.devtools.ksp:symbol-processing-gradle-plugin:<version_ksp>")
+    }
+}
 
 dependencies {
 
@@ -71,9 +80,13 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    kps("groupId:artifactId:version")
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
     implementation ("com.google.code.gson:gson:2.10.1")
     implementation ("com.google.code.gson:gson:2.8.6")
+    implementation ("androidx.room:room-runtime:2.3.0")
+    ksp ("androidx.room:room-compiler:2.3.0")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
 
 
 }
