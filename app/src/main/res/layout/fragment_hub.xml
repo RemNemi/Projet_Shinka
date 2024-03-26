@@ -19,14 +19,22 @@
             app:flexWrap="wrap">
 
             <!-- Exemple de bouton sous forme de bulle -->
+
+
             <Button
-                android:id="@+id/button_category1"
+                android:id="@+id/button_task_reminder"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/shape_bubble"
-                android:text="@string/Hub11" />
+                android:text="Task Reminder" />
 
-            <!-- Ajoutez d'autres boutons ici pour d'autres catégories -->
+            <Button
+                android:id="@+id/button_calendar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_bubble"
+                android:text="Calendar" />
+
 
         </com.google.android.flexbox.FlexboxLayout>
     </LinearLayout>
