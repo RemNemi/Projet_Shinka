@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
+import com.example.Projet_Shinka.Task.TaskManager
+
 
 class HubFragment : Fragment() {
     // Gestionnaire de tâches (assurez-vous que cette classe existe dans votre projet)
@@ -40,7 +42,6 @@ class HubFragment : Fragment() {
     }
 
     private fun navigateToTaskReminder() {
-        // Implémentez la navigation vers la page de rappel des tâches
         val taskReminderFragment = TaskReminderFragment()
         parentFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, taskReminderFragment)

@@ -17,8 +17,5 @@
         android:layout_height="0dp"
         android:layout_weight="1"/>
 
-    <!-- D'autres éléments UI comme des boutons de filtrage peuvent être ajoutés ici -->
 
 </LinearLayout>
-
-

@@ -22,5 +22,7 @@
     <string name="error_message">Erreur</string>
     <string name="action_confirm">Confirmer</string>
     <string name="action_cancel">Annuler</string>
-    <string name="welcome_message">Bienvenue dans Shinka</string>$
+    <string name="welcome_message">Bienvenue dans Shinka</string>
+    <string name="ajouter_une_tache">Ajouter une tache</string>
+    <string name="rappels_de_t_ches">Rappels de Tâches</string>$
 </resources>

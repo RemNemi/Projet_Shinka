@@ -9,22 +9,21 @@
         android:id="@+id/textViewTaskReminderTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Rappels de Tâches"
+        android:text="@string/rappels_de_t_ches"
         android:textSize="24sp"
         android:textStyle="bold"
         android:layout_marginBottom="16dp"/>
 
+    <Button
+        android:id="@+id/addTaskButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ajouter_une_tache"/>
+
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewTaskReminders"
+        android:id="@+id/tasksRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginBottom="16dp"/>
-
-    <Button
-        android:id="@+id/buttonAddTask"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Ajouter une Tâche"/>
+        android:layout_weight="1"/>
 
 </LinearLayout>

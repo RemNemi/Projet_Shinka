@@ -1,4 +1,4 @@
-package com.example.Projet_Shinka
+package com.example.Projet_Shinka.Entrainement
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
+import com.example.Projet_Shinka.R
 
 class Entrainement<name> : Fragment() {
 
