@@ -1,4 +1,4 @@
-package com.example.Projet_Shinka
+package com.example.Projet_Shinka.Profile
 
 import androidx.fragment.app.Fragment
 

@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.storage.CacheResetOnProcessCanceled.enabled
+
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
@@ -6,6 +8,9 @@ plugins {
 android {
     namespace = "com.example.Projet_Shinka"
     compileSdk = 34
+    viewBinding {
+        enabled = true
+    }
 
     defaultConfig {
         applicationId = "com.example.Projet_Shinka"
@@ -80,6 +85,9 @@ dependencies {
     //noinspection KaptUsageInsteadOfKsp
     kapt("androidx.room:room-compiler:2.6.1")
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
+    implementation ("com.squareup.okhttp3:logging-interceptor:4.12.0")
+    implementation ("org.bouncycastle:bcprov-jdk15on:1.68")
+
 
 
 }
