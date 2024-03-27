@@ -30,7 +30,7 @@ class HubFragment : Fragment() {
 
 
 
-/*
+/* ancien HubFragment : si l'on souhaite changer pour plusieur option
 class HubFragment : Fragment() {
     // Gestionnaire de tâches (assurez-vous que cette classe existe dans votre projet)
     private lateinit var taskManager: TaskManager
