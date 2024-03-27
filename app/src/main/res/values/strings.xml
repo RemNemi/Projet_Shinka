@@ -24,5 +24,6 @@
     <string name="action_cancel">Annuler</string>
     <string name="welcome_message">Bienvenue dans Shinka</string>
     <string name="ajouter_une_tache">Ajouter une tache</string>
-    <string name="rappels_de_t_ches">Rappels de Tâches</string>$
+    <string name="rappels_de_t_ches">Rappels de Tâches</string>
+    <string name="task_title_hint">Quelle tache voulez vous ajouter</string>$
 </resources>

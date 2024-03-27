@@ -26,6 +26,12 @@ interface TaskDao {
 
     @Query("SELECT * FROM Task")
     suspend fun getTasks(): List<Task>
+
+    @Delete
+    suspend fun deleteTask(task: Task)
+
+    @Update
+    suspend fun updateTask(task: Task)
 }
 
 @Database(entities = [Task::class], version = 1)
@@ -64,6 +70,15 @@ class TaskManager(private val context: Context) {
     suspend fun getTasks(): List<Task> {
         return taskDao.getTasks()
     }
+
+    suspend fun deleteTask(task: Task) {
+        taskDao.deleteTask(task)
+    }
+
+    suspend fun updateTask(task: Task) {
+        taskDao.updateTask(task)
+    }
+
 }
 
 class Converters {

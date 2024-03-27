@@ -7,7 +7,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.Projet_Shinka.R
 
-class TaskAdapter(private val tasks: List<Task>) : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
+class TaskAdapter(
+    private val tasks: List<Task>,
+    private val onDeleteClick: (Task) -> Unit,
+    private val onEditClick: (Task) -> Unit
+) : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
 
     class TaskViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textViewTitle: TextView = view.findViewById(R.id.textViewTitle)
