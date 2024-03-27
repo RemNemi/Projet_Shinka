@@ -41,16 +41,13 @@ class MyAIFragment : Fragment() {
                 aiAssistant.sendPrompt(userPrompt) { response ->
                     activity?.runOnUiThread {
                         when (response) {
-                            is Response.Success<*> -> aiResponseView.text = response.data.toString()
-                            is Response.Error -> aiResponseView.text = response.message
-                            // Supprimez les autres cas non définis et non nécessaires
-                            else -> {}
+                            is OpenAIResponse.Success -> aiResponseView.text = response.data
+                            is OpenAIResponse.Error -> aiResponseView.text = response.message
                         }
                     }
                 }
             } else {
-                aiResponseView.text =
-                    getString(R.string.prompt_empty_error) // Assurez-vous que cette chaîne est définie dans vos ressources
+                aiResponseView.text = getString(R.string.prompt_empty_error)
             }
         }
     }
