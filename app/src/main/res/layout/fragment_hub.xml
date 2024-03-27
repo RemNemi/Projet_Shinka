@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/taskReminderContainer">
+</FrameLayout>
+<!--
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -17,8 +23,6 @@
             app:alignItems="center"
             app:justifyContent="center"
             app:flexWrap="wrap">
-
-            <!-- Exemple de bouton sous forme de bulle -->
 
 
             <Button
@@ -39,3 +43,4 @@
         </com.google.android.flexbox.FlexboxLayout>
     </LinearLayout>
 </ScrollView>
+-->

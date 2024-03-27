@@ -8,7 +8,29 @@ import android.widget.Button
 import androidx.fragment.app.Fragment
 import com.example.Projet_Shinka.Task.TaskManager
 
+class HubFragment : Fragment() {
 
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        // Inflatez le layout pour ce fragment
+        return inflater.inflate(R.layout.fragment_hub, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // Ajoutez TaskReminderFragment au conteneur
+        if (savedInstanceState == null) { // Pour éviter de recréer le fragment lors des changements de configuration comme les rotations de l'écran
+            childFragmentManager.beginTransaction()
+                .replace(R.id.taskReminderContainer, TaskReminderFragment())
+                .commit()
+        }
+    }
+}
+
+
+
+
+/*
 class HubFragment : Fragment() {
     // Gestionnaire de tâches (assurez-vous que cette classe existe dans votre projet)
     private lateinit var taskManager: TaskManager
@@ -64,3 +86,4 @@ class HubFragment : Fragment() {
 }
 
 // Vous devrez créer une classe TaskManager pour gérer les tâches et les notifications
+*/
