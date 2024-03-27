@@ -1,4 +1,4 @@
-package com.example.Projet_Shinka
+package com.example.Projet_Shinka.My_IA
 
 import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaType
@@ -8,7 +8,7 @@ import java.io.IOException
 class OpenAIClient {
 
     private val client = OkHttpClient()
-    private val apiKey = "sk-..." // Utilisez un mécanisme sécurisé pour stocker et récupérer la clé API
+    private val apiKey = "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" // Utilisez un mécanisme sécurisé pour stocker et récupérer la clé API
 
     fun sendPrompt(prompt: String, completion: (Response<String>) -> Unit) {
         val mediaType = "application/json; charset=utf-8".toMediaType() // Correction ici

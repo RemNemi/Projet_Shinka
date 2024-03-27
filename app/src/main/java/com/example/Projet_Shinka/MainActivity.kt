@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.Projet_Shinka.Entrainement.EntrainementFragment
+import com.example.Projet_Shinka.My_IA.MyAIFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 

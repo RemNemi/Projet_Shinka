@@ -1,4 +1,4 @@
-package com.example.Projet_Shinka
+package com.example.Projet_Shinka.My_IA
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.example.Projet_Shinka.R
 
 // Assurez-vous d'importer les classes nécessaires pour la réponse...
 
@@ -25,8 +26,6 @@ class MyAIFragment : Fragment() {
         // Inflatez votre layout de MyAIFragment ici et retournez la vue
         return inflater.inflate(R.layout.fragment_my_ai, container, false)
     }
-
-    // ...
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
