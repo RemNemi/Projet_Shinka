@@ -7,26 +7,22 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.Projet_Shinka.R
 
-class EntrainementAdapter(private val entrainements: List<Entrainement<Any?>>) : RecyclerView.Adapter<EntrainementAdapter.ViewHolder>() {
-
-    // Vous devrez créer une classe de données Entrainement pour représenter chaque activité
+class EntrainementAdapter(private val entrainements: List<Entrainement>) : RecyclerView.Adapter<EntrainementAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        // Récupérer et définir les vues que vous voulez utiliser dans chaque élément, par exemple:
-        val textView: TextView = view.findViewById(R.id.textView_entrainement)
+        val textViewNom: TextView = view.findViewById(R.id.textView_entrainement)
+        val textViewDescription: TextView = view.findViewById(R.id.textViewDescription)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        // Créer une nouvelle vue pour chaque élément
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_entrainement, parent, false)
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        // Configurer le contenu de chaque élément de la liste
         val entrainement = entrainements[position]
-        holder.textView.text = entrainement.nom
-        // Plus de configuration si nécessaire
+        holder.textViewNom.text = entrainement.nom
+        holder.textViewDescription.text = entrainement.description
     }
 
     override fun getItemCount() = entrainements.size

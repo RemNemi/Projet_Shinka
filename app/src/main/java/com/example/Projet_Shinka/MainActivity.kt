@@ -3,7 +3,6 @@ package com.example.Projet_Shinka
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.example.Projet_Shinka.Entrainement.EntrainementFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
