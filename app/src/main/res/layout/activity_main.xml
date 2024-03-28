@@ -5,15 +5,13 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <!-- Conteneur pour vos fragments avec animation de transition -->
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/nav_view"
-        android:animateLayoutChanges="true"/> <!-- Ajoutez cette ligne pour une animation simple -->
+        android:animateLayoutChanges="true"/>
 
-    <!-- BottomNavigationView personnalisé -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
         android:layout_width="match_parent"
@@ -23,5 +21,5 @@
         app:menu="@menu/bottom_navigation_menu"
         app:itemIconTint="@color/nav_item_color"
         app:itemTextColor="@color/nav_item_color"
-    app:elevation="16dp"/> <!-- Ombre sous la barre de navigation pour plus de profondeur -->
+    app:elevation="16dp"/>
 </RelativeLayout>

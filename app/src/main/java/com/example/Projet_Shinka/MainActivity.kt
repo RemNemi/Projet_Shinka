@@ -4,8 +4,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.Projet_Shinka.Entrainement.EntrainementFragment
+import com.example.Projet_Shinka.My_IA.MyAIFragment
+import com.example.Projet_Shinka.Profile.ProfileFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,25 +15,26 @@ class MainActivity : AppCompatActivity() {
 
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
+        // Gère les clics sur les éléments de la BottomNavigationView
         navView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_hub -> {
-                    // Logique pour sélectionner le fragment HUB
+                    // Affiche le fragment HUB
                     replaceFragment(HubFragment())
                     true
                 }
                 R.id.navigation_entrainement -> {
-                    // Logique pour sélectionner le fragment Entrainement
+                    // Affiche le fragment Entrainement
                     replaceFragment(EntrainementFragment())
                     true
                 }
                 R.id.navigation_my_ai -> {
-                    // Logique pour sélectionner le fragment IA
+                    // Affiche le fragment IA
                     replaceFragment(MyAIFragment())
                     true
                 }
                 R.id.navigation_profile -> {
-                    // Logique pour sélectionner le fragment Profile
+                    // Affiche le fragment Profile
                     replaceFragment(ProfileFragment())
                     true
                 }
@@ -40,11 +42,11 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        // Sélectionnez le fragment initial ici si nécessaire, par exemple le HUB
+        // Sélectionne le fragment initial (HUB)
         navView.selectedItemId = R.id.navigation_hub
     }
 
-    // Fonction utilitaire pour remplacer le fragment actuel par le nouveau
+    // Remplace le fragment actuellement affiché par un nouveau
     private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, fragment)
@@ -52,6 +54,3 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
-class ProfileFragment : Fragment() {
-    // ...
-}

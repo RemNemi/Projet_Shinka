@@ -1,61 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    android:columnCount="2"
-    android:rowCount="3"
-    android:alignmentMode="alignMargins"
-    android:columnOrderPreserved="false">
-    <Button
-        android:id="@+id/button_meditation"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="@string/meditation"
-        android:layout_columnWeight="1"
-        android:layout_rowWeight="1"
-        android:padding="8dp"
-        android:onClick="onMeditationClick"
-        android:background="?attr/selectableItemBackground"/>
+    android:fillViewport="true">
 
-
-    <!-- Exemple d'un élément pour le bloc-note -->
     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_columnWeight="1"
-        android:layout_rowWeight="1"
-        android:padding="8dp"
-        android:gravity="center"
-        android:onClick="onNoteClick"
-        android:background="?attr/selectableItemBackground"> <!-- Pour l'effet de clic -->
+        android:padding="16dp">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_note" />
-
+        <!-- Section Entraînement Physique -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/note"
-            />
+            android:text="Entraînement Physique"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
 
+        <!-- Boutons pour les différents entraînements physiques -->
+        <Button
+            android:id="@+id/boutonPhysique1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Force" />
+        <Button
+            android:id="@+id/boutonPhysique2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Endurance" />
+        <Button
+            android:id="@+id/boutonPhysique3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Agilité" />
+        <Button
+            android:id="@+id/boutonPhysique4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Étirement" />
+
+        <!-- Section Entraînement Mental -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Entraînement Mental"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"/>
+        <Button
+            android:id="@+id/boutonMental1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Méditation" />
+        <Button
+            android:id="@+id/boutonMental2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Respiration" />
+        <Button
+            android:id="@+id/boutonMental3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Challenges" />
+        <Button
+            android:id="@+id/boutonMental4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Affirmations" />
+
+        <!-- Section Entraînement Intellect -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Entraînement Intellect"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"/>
+        <Button
+            android:id="@+id/boutonIntellect1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Concentration" />
+        <Button
+            android:id="@+id/boutonIntellect2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Journal" />
+        <Button
+            android:id="@+id/boutonIntellect3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tests" />
+        <Button
+            android:id="@+id/boutonIntellect4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cours" />
     </LinearLayout>
-
-    <!-- Ajout du RecyclerView -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_entrainement"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:padding="8dp"
-        android:background="?attr/selectableItemBackground" />
-
-    <!-- Ajoutez d'autres éléments pour la respiration, la méditation, etc. -->
-</GridLayout>
-
-
+</ScrollView>

@@ -21,45 +21,56 @@ import kotlinx.coroutines.launch
 
 class TaskReminderFragment : Fragment() {
 
+    // Variables pour la gestion de la vue et des données
     private lateinit var recyclerView: RecyclerView
     private lateinit var taskAdapter: TaskAdapter
     private lateinit var taskManager: TaskManager
 
+    // Crée la vue du fragment
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
+        // Inflate la mise en page du fragment_task_reminder
         return inflater.inflate(R.layout.fragment_task_reminder, container, false)
     }
 
+    // Configure la vue une fois qu'elle est créée
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Configuration du RecyclerView pour l'affichage des tâches
         recyclerView = view.findViewById(R.id.tasksRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(context)
+
+        // Initialisation de TaskManager pour la gestion des données
         taskManager = TaskManager(requireContext())
+
+        // Charge les tâches existantes dans l'interface utilisateur
         loadTasks()
 
+        // Gestion de l'ajout de nouvelles tâches
         val editTextTaskTitle: EditText = view.findViewById(R.id.editTextTaskTitle)
         val addTaskButton: Button = view.findViewById(R.id.addTaskButton)
-
         addTaskButton.setOnClickListener {
             val taskTitle = editTextTaskTitle.text.toString()
             if (taskTitle.isNotEmpty()) {
-                addNewTask(taskTitle)
+                addNewTask(taskTitle)  // Ajoute la tâche et nettoie le champ de saisie
                 editTextTaskTitle.text.clear()
             } else {
+                // Affiche un message si le champ de saisie est vide
                 Toast.makeText(context, "Le titre de la tâche ne peut pas être vide", Toast.LENGTH_SHORT).show()
             }
         }
     }
 
+    // Ajoute une nouvelle tâche dans la base de données et rafraîchit l'affichage
     private fun addNewTask(title: String) {
         val newTask = Task(title = title, type = TaskType.SPORT, timeCategory = TimeCategory.DAILY)
         lifecycleScope.launch {
             taskManager.addTask(newTask)
-            loadTasks()
+            loadTasks()  // Recharge les tâches pour afficher la nouvelle tâche
         }
     }
 
+    // Charge les tâches depuis la base de données et les affiche dans le RecyclerView
     private fun loadTasks() {
         lifecycleScope.launch {
             taskAdapter = TaskAdapter(
@@ -71,43 +82,36 @@ class TaskReminderFragment : Fragment() {
         }
     }
 
-
+    // Supprime une tâche sélectionnée et rafraîchit l'affichage
     private fun deleteTask(task: Task) {
         lifecycleScope.launch {
-            taskManager.deleteTask(task)  // Supprime la tâche de la base de données
-            loadTasks()  // Recharge la liste des tâches pour mettre à jour l'affichage
+            taskManager.deleteTask(task)
+            loadTasks()  // Mise à jour de l'interface utilisateur après suppression
         }
     }
 
-
-
-
+    // Affiche un dialogue pour modifier une tâche et sauvegarde les modifications
     private fun editTask(task: Task) {
-        // Lancez une activité ou un dialogue de modification ici
-        // Par exemple, vous pouvez utiliser un AlertDialog avec un champ de saisie pour modifier le titre
-
-        val editText = EditText(context)
-        editText.setText(task.title)
-
+        val editText = EditText(context).apply { setText(task.title) }
         AlertDialog.Builder(context)
             .setTitle("Modifier la tâche")
             .setView(editText)
             .setPositiveButton("Sauvegarder") { _, _ ->
                 val newTitle = editText.text.toString()
                 if(newTitle.isNotEmpty()) {
-                    task.title = newTitle  // Met à jour le titre de la tâche
-                    updateTask(task)  // Met à jour la tâche dans la base de données
+                    task.title = newTitle  // Mise à jour du titre de la tâche
+                    updateTask(task)  // Mise à jour de la tâche dans la base de données
                 }
             }
             .setNegativeButton("Annuler", null)
             .show()
     }
 
+    // Met à jour la tâche modifiée dans la base de données et rafraîchit l'affichage
     private fun updateTask(task: Task) {
         lifecycleScope.launch {
-            taskManager.updateTask(task)  // Met à jour la tâche dans la base de données
-            loadTasks()  // Recharge les tâches pour mettre à jour l'affichage
+            taskManager.updateTask(task)
+            loadTasks()  // Recharge les tâches pour afficher les modifications
         }
     }
-
 }

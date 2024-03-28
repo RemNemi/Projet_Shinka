@@ -1,16 +1,13 @@
-import org.jetbrains.kotlin.storage.CacheResetOnProcessCanceled.enabled
-
 plugins {
-    alias(libs.plugins.androidApplication)
-    alias(libs.plugins.jetbrainsKotlinAndroid)
     kotlin("kapt")
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
 }
+
 android {
     namespace = "com.example.Projet_Shinka"
     compileSdk = 34
-    viewBinding {
-        enabled = true
-    }
+
 
     defaultConfig {
         applicationId = "com.example.Projet_Shinka"
@@ -43,6 +40,9 @@ android {
     }
     buildFeatures {
         compose = true
+        viewBinding = true
+        //noinspection DataBindingWithoutKapt
+        dataBinding = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
@@ -84,9 +84,10 @@ dependencies {
     implementation("androidx.room:room-ktx:2.6.1")
     //noinspection KaptUsageInsteadOfKsp
     kapt("androidx.room:room-compiler:2.6.1")
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
     implementation ("com.squareup.okhttp3:logging-interceptor:4.12.0")
     implementation ("org.bouncycastle:bcprov-jdk15on:1.68")
+    implementation ("com.google.android.material:material:1.11.0")
 
 
 

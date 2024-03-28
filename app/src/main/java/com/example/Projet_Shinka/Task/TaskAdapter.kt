@@ -14,30 +14,27 @@ class TaskAdapter(
     private val onEditClick: (Task) -> Unit
 ) : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
 
+    // ViewHolder contenant les éléments UI pour une tâche
     class TaskViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textViewTitle: TextView = view.findViewById(R.id.textViewTitle)
         val editTaskButton: ImageButton = view.findViewById(R.id.editTaskButton)
         val deleteTaskButton: ImageButton = view.findViewById(R.id.deleteTaskButton)
     }
 
+    // Création et initialisation du ViewHolder pour chaque tâche
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
-        val inflater = LayoutInflater.from(parent.context)
-        val view = inflater.inflate(R.layout.item_task, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_task, parent, false)
         return TaskViewHolder(view)
     }
 
+    // Association des données de tâche aux éléments UI et gestion des clics
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
         val task = tasks[position]
         holder.textViewTitle.text = task.title
-
-        holder.editTaskButton.setOnClickListener {
-            onEditClick(task)
-        }
-
-        holder.deleteTaskButton.setOnClickListener {
-            onDeleteClick(task)
-        }
+        holder.editTaskButton.setOnClickListener { onEditClick(task) }
+        holder.deleteTaskButton.setOnClickListener { onDeleteClick(task) }
     }
 
+    // Retourne le nombre total de tâches
     override fun getItemCount() = tasks.size
 }

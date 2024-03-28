@@ -29,7 +29,6 @@
             android:textSize="16sp"
             android:text="@string/nom_entrainement1" />
 
-        <!-- Vous pouvez ajouter ici un autre TextView pour plus d'informations -->
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

@@ -13,41 +13,39 @@ import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.IOException
 
 
-//c2stSDFic0RHUGt0bERHNktvelRESE5UM0JsYmtGSm8wVERFYVJxSWNBWk5JdXBseW1H
-class OpenAIClient {
-    // Le client OkHttp pour effectuer les requêtes HTTP.
-    private var client = OkHttpClient()
 
-    // La clé API d'OpenAI. Il est important de la garder sécurisée et non exposée.
-    private val apiKey = ""
+// Classe pour interagir avec l'API OpenAI.
+class OpenAIClient {
+    private var client = OkHttpClient() // Client HTTP pour les requêtes.
+    private val apiKey = "MaCléAPIOpenIA" // Clé API OpenAI.
 
     init {
-        // Création et configuration de l'intercepteur de journalisation pour déboguer les requêtes.
+        // Configuration de l'intercepteur de journalisation pour les requêtes.
         val logging = HttpLoggingInterceptor().apply {
             level = HttpLoggingInterceptor.Level.BODY
         }
-
-        // Construction du client OkHttp avec l'intercepteur de journalisation.
+        // Ajout de l'intercepteur au client HTTP.
         client = OkHttpClient.Builder()
             .addInterceptor(logging)
             .build()
     }
 
-    // Méthode pour envoyer une invite (prompt) à OpenAI et recevoir une réponse.
+    // Envoie une invite à OpenAI et reçoit une réponse.
     fun sendPrompt(prompt: String, completion: (OpenAIResponse<String>) -> Unit) {
-        // Préparation des données de la requête au format JSON.
+        // Formatage du corps de la requête en JSON.
         val mediaType = "application/json; charset=utf-8".toMediaType()
         val body = """
         {
             "model": "gpt-3.5-turbo-0125",
             "messages": [
-                {"role": "system", "content": "You are a helpful assistant."},
+                {"role": "system", "content": 
+                "tu est un assistant en devloppement personnel, tu cherche a aider en peu de mot une personne qui te pose une question."},
                 {"role": "user", "content": "$prompt"}
             ]
         }
         """.toRequestBody(mediaType)
 
-        // Création de la requête HTTP.
+        // Création et configuration de la requête HTTP.
         val request = Request.Builder()
             .url("https://api.openai.com/v1/chat/completions")
             .post(body)
@@ -57,18 +55,19 @@ class OpenAIClient {
         // Envoi de la requête de manière asynchrone.
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
-                // Gestion des erreurs réseau et journalisation pour le débogage.
+                // Log en cas d'échec réseau et transmission de l'erreur.
                 Log.e("OpenAIClient", "Erreur de réseau: ${e.message}")
                 completion(OpenAIResponse.Error("Erreur de réseau ou problème de serveur."))
             }
+
             override fun onResponse(call: Call, response: Response) {
                 response.use {
                     if (!response.isSuccessful) {
-                        // Gestion des réponses non réussies de l'API.
+                        // Log en cas de réponse non réussie et transmission de l'erreur.
                         Log.e("OpenAIClient", "Erreur de réponse: ${response.message}")
                         completion(OpenAIResponse.Error("Réponse inattendue: ${response.message}"))
                     } else {
-                        // Traitement de la réponse en cas de succès.
+                        // Succès : extraction et transmission des données.
                         response.body?.string()?.let { responseBody ->
                             completion(OpenAIResponse.Success(responseBody))
                         } ?: completion(OpenAIResponse.Error("Réponse vide de la part d'OpenAI."))
@@ -79,7 +78,7 @@ class OpenAIClient {
     }
 }
 
-// Classe pour encapsuler les réponses de l'API OpenAI, qu'elles soient réussies ou non.
+// Réponse encapsulée de l'API OpenAI, succès ou erreur.
 sealed class OpenAIResponse<out T> {
     data class Success<out T>(val data: T) : OpenAIResponse<T>()
     data class Error(val message: String) : OpenAIResponse<Nothing>()

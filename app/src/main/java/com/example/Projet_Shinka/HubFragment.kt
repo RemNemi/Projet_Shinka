@@ -8,16 +8,17 @@ import androidx.fragment.app.Fragment
 
 class HubFragment : Fragment() {
 
+    // Inflate le layout du fragment lors de la création de la vue
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        // Inflatez le layout pour ce fragment
         return inflater.inflate(R.layout.fragment_hub, container, false)
     }
 
+    // Configure les composants de la vue une fois celle-ci créée
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Ajoutez TaskReminderFragment au conteneur
-        if (savedInstanceState == null) { // Pour éviter de recréer le fragment lors des changements de configuration comme les rotations de l'écran
+        // Ajout de TaskReminderFragment, vérifie si le fragment existe déjà pour éviter les doublons
+        if (savedInstanceState == null) {
             childFragmentManager.beginTransaction()
                 .replace(R.id.taskReminderContainer, TaskReminderFragment())
                 .commit()
@@ -25,7 +26,7 @@ class HubFragment : Fragment() {
     }
 }
 
-
+//Potenciel amelioration a faire pour le hub
 
 
 /* ancien HubFragment : si l'on souhaite changer pour plusieur option

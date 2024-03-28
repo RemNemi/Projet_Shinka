@@ -4,4 +4,8 @@
     <item name="recycler_view_entrainement" type="id"/>
     <item name="button_task_reminder" type="id"/>
     <item name="button_calendar" type="id"/>
+    <item name="textViewDescription" type="id"/>
+    <item name="profileTabs" type="id"/>
+    <item name="profileViewpager" type="id"/>
+    <item name="textViewEntrainementTitle" type="id"/>
 </resources>

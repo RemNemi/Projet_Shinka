@@ -1,13 +1,13 @@
 <resources>
-    <string name="entrainement">entrainement</string>
-    <string name="hub">hub</string>
-    <string name="my_ai">my_ai</string>
-    <string name="profile">profile</string>
+    <string name="entrainement">Entrainement</string>
+    <string name="hub">HUB</string>
+    <string name="my_ai">MY IA</string>
+    <string name="profile">Profile</string>
     <string name="Hub11">calendar</string>
     <string name="entrainement_title">Entrainement</string>
     <string name="nom_entrainement1">Entrainement N1</string>
     <string name="todo">TODO</string>
-    <string name="note">VALUE A CHANGER\n</string>
+    <string name="note">NOTE\n</string>
     <string name="prompt_empty_error">ERROR (1car min)</string>
     <string name="user_input_hint">Poser vos question</string>
     <string name="send">Envoyer</string>
@@ -26,5 +26,8 @@
     <string name="ajouter_une_tache">Ajouter une tache</string>
     <string name="rappels_de_t_ches">Rappels de Tâches</string>
     <string name="task_title_hint">Quelle tache voulez vous ajouter</string>
-    <string name="prenom_nom">Prenom_Nom</string>$
+    <string name="prenom_nom">Prenom Nom</string>
+    <string name="profile_picture">Profile</string>
+    <string name="time_trained">Time trained\n0 hr 0 min</string>
+    <string name="daily_streak">Jours a la Suite\n0 jours</string>$
 </resources>
